@@ -42,7 +42,7 @@ def line2data(line, dclr, strain):
         'C': 12,
         'D': 13
     }
-    c = np.double(d.get(c, c))
+    c = np.int(d.get(c, c))
     if dclr % 2:
         par_trick = c
     else:
@@ -56,7 +56,8 @@ class DealParDataset(Dataset):
     ''' DoubleDummy Dataset '''
 
     def __init__(self, is_train_set=False):
-        filename = './data/try10000.txt' if is_train_set else './data/test10000.txt'
+        filename = './data/sol100000.txt' if is_train_set else './data/test10000.txt'
+        print(filename)
         self.rawtable = open(filename, 'r').readlines()
         self.len = len(self.rawtable) * 20  # 5 strains, 4 declarers
     
